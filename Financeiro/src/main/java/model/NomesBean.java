@@ -39,9 +39,35 @@ public class NomesBean {
 	}
 	// getters e setters
 	
+	
+	
 	public String getNome() {
 			return nome;
 		}
+		public HtmlInputText getInputNome() {
+		return inputNome;
+	}
+
+
+
+	public void setInputNome(HtmlInputText inputNome) {
+		this.inputNome = inputNome;
+	}
+
+
+
+	public HtmlCommandButton getBotaoAdicionar() {
+		return botaoAdicionar;
+	}
+
+
+
+	public void setBotaoAdicionar(HtmlCommandButton botaoAdicionar) {
+		this.botaoAdicionar = botaoAdicionar;
+	}
+
+
+
 		public void setNome(String nome) {
 			this.nome = nome;
 		}
