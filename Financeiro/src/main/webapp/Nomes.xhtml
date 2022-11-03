@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://xmlns.jcp.org/jsf/html">
-		
-		<h:head>
-			<title>Olá JSF</title>
-		</h:head>
-		
-		<h:body>
-			<h:form>
-			 	<h1>Olá #{ola.nomeCompleto}</h1>
-			 	
-				Nome: <h:inputText  value="#{ola.nome}"/>
-				<br/>
-				Sobrenome: <h:inputText value="#{ola.sobrenome}" />
-				<br/>
-				
-				<h:commandButton value="Próxima página" action="Ola" />
-			</h:form>
-		</h:body>
-		
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Lista de nomes</title>
+	<style>
+		.campo {
+			background-color: #ccc;
+			color: white
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form>
+		Nome: <h:inputText value="#{nomesBean.nome}"
+					binding="#{nomesBean.inputNome}" />
+			<br/>
+			  <h:commandButton value="Adicionar" action="#{nomesBean.adicionar}"
+					binding="#{nomesBean.botaoAdicionar}" />
+			<br/>
+		<ol>
+			<ui:repeat var="nome" value="#{nomesBean.nomes}">
+				<li>#{nome}</li>
+			</ui:repeat>
+		</ol>
+			 <h:inputText styleClass="campo"
+				    style="border-color: blue; border-style: dotted" />
+		     <h:inputText size="40" maxlength="50"
+				    title="Informe seu nome" />
+	</h:form>
+</h:body>
 </html>
