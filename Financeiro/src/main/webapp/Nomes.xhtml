@@ -28,6 +28,10 @@
 				    style="border-color: blue; border-style: dotted" />
 		     <h:inputText size="40" maxlength="50"
 				    title="Informe seu nome" />
+		 <h:inputText onclick="this.value = '';"
+						  onchange="this.value = this.value.toUpperCase();"
+                          onmouseover="this.style.backgroundColor = 'yellow';"
+                          onmouseout="this.style.backgroundColor = 'white';"/>
 	</h:form>
 </h:body>
 </html>
