@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	  
+<!-- 	  NAVEGAÇÃO IMPLICITA! -->
+	  
+<!--  Quando incluímos um <h:commandButton> com um valor na propriedade action , -->
+<!-- o mecanismo de tratamento de navegação tentará encontrar uma página adequada -->
+<!-- automaticamente. No exemplo abaixo, o mecanismo de navegação encontrará e -->
+<!-- encaminhará a requisição para a página Ola.xhtml.  -->
+
+<h:commandButton value="Próxima página" action="Ola" />
+
+<!-- 			NAVEGAÇÃO DINAMICA -->
+<!-- Quando um action tem uma expressão de ligação de método, o retorno do método -->
+<!-- deve ser o outcome da navegação. -->
+
+<h:commandButton value="Adicionar" action="#{nomesBean.adicionar}" />
+
+<!-- 				NAVEGAÇÃO EXPLICITA! -->
+<!-- 	As regras de navegação explícitas são declaradas no arquivo faces-config.xml. Para -->
+<!-- declarar uma regra explícita, precisamos informar o caminho da página de origem, um -->
+<!-- outcome com um nome qualquer e o caminho da página de destino. -->
+
+	<navigation-rule>
+			<from-view-id>/Nomes.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>oi</from-outcome>
+				<to-view-id>/Ola.xhtml</to-view-id>
+			</navigation-case>
+	</navigation-rule>
+
+<h:commandButton value="Próxima página" action="oi" />
+
+<!-- 				WILDCARD -->
+<!-- Podemos usar wildcard no elemento from-view-id para selecionar diversos arquivos -->
+<!-- de origem, como por exemplo * ou /admin/* . -->
+
+
+	<navigation-rule>
+			<from-view-id>*</from-view-id>
+			<navigation-case>
+				<from-outcome>oi</from-outcome>
+				<to-view-id>/Ola.xhtml</to-view-id>
+			</navigation-case>
+	</navigation-rule>		
+	
+<!-- 	REDIRECIONAMENTO -->
+<!-- 	Por padrão, a requisição será encaminhada para a página de destino. Se precisarmos -->
+<!-- fazer o redirecionamento, basta incluir o elemento <redirect/> . -->
+
+		<navigation-rule>
+				<from-view-id>*</from-view-id>
+				<navigation-case>
+					<from-outcome>oi</from-outcome>
+					<to-view-id>/Ola.xhtml</to-view-id>	
+					<redirect/>
+				</navigation-case>
+		</navigation-rule>
+
+
+
+
+</html>
