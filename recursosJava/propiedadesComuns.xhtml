@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	  
+<!-- 	  PROPRIEDADES COMUNS  -->
+	  
+<!-- 	PROPRIEDADE ID -->
+<!-- A propriedade id está presente em quase todos os componentes. Ela nos permite -->
+<!-- identificar os componentes da página para referência posterior, através de classes Java -->
+<!-- ou outros componentes JSF, além de poder acessar os elementos da HTML através de -->
+<!-- scripts. -->
+<!-- Para exemplificar, criaremos uma página com um campo de entrada de texto e um -->
+<!-- botão. Apenas para simplificar, o botão não será criado usando um componente JSF. -->
+<!-- Ao clicar no botão, um código JavaScript irá alterar o conteúdo do campo de entrada. -->
+
+
+		<h:head>
+			<title>Propriedades comuns</title>
+			
+			<script>
+				function alterarValorCampo() {
+					var campo = document.getElementById('meuForm:meuCampo');
+						campo.value = 'Valor alterado';
+			}
+			</script>
+		</h:head>
+		
+		<h:body>
+			<h:form id="meuForm">
+					<h:inputText id="meuCampo" />
+					
+					<input type="button" value="Alterar valor"
+						onclick="alterarValorCampo();"/>
+			</h:form>
+		</h:body>
+		
+		
+		
+<!-- 		A propriedade binding -->
+<!-- A propriedade binding pode ser especificada com uma expressão ligação que -->
+<!-- referencia uma propriedade do bean do tipo do componente. Já usamos este atributo -->
+<!-- quando falamos sobre backing beans. -->
+
+
+
+<!-- A propriedade rendered -->
+<!-- A propriedade rendered também está presente na maioria das tags. Ela controla a -->
+<!-- renderização do componente. Se o valor ou o resultado da expressão for false , o -->
+<!-- componente não será renderizado. -->
+
+
+
+<h:inputText rendered="false" />
+<h:inputText rendered="#{meuBean.usuarioAtivo}" />
+		
+		
+<!-- 		As propriedades style e styleClass -->
+<!-- É possível utilizar estilos CSS (Cascade Style Sheet) em componentes de modo inline -->
+<!-- ou usando classes CSS. -->
+
+	<h:head>
+		<title>Estilos</title>
+
+		<style>
+			.campo {
+				background-color: #ccc;
+					color: white
+			}
+		</style>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<h:inputText styleClass="campo"
+				style="border-color: blue; border-style: dotted" />
+		</h:form>
+	</h:body>
+	
+	
+<!-- 	As propriedades da HTML -->
+<!-- As propriedades da HTML, também conhecidos como pass-through HTML, -->
+<!-- representam exatamente os atributos de elementos da própria HTML. Não vamos -->
+<!-- listar todos eles aqui, mas apenas usar alguns como exemplo. -->
+
+	<h:head>
+		<title>Propriedades HTML</title>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<h:inputText size="40" maxlength="50"
+				title="Informe seu nome" />
+		</h:form>
+	</h:body>
+
+<!-- As propriedades de eventos DHTML -->
+<!-- As propriedades que suportam scripts, que são executados em algum evento do -->
+<!-- usuário, são chamadas de propriedades de eventos DHTML. Quase todas as tags da -->
+<!-- biblioteca HTML possuem essas propriedades. -->
+<!-- No campo de entrada do exemplo abaixo, usamos algumas propriedades para incluir -->
+<!-- códigos JavaScript que tratam eventos do usuário. -->
+
+	<h:head>
+		<title>Propriedades DHTML</title>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<h:inputText onclick="this.value = '';"
+					onchange="this.value = this.value.toUpperCase();"
+					onmouseover="this.style.backgroundColor = 'yellow';"
+					onmouseout="this.style.backgroundColor = 'white';"/>
+		</h:form>
+	</h:body>
+	
+	
+<!-- 	Os códigos JavaScript serão renderizados na saída para o navegador. Quando o usuário -->
+<!-- clicar sobre o campo, seu valor será alterado para vazio, ao alterar o valor do campo, -->
+<!-- ele será modificado para letras maiúsculas, ao passar o cursor do mouse por cima do -->
+<!-- campo, a cor de fundo será alterada e ao retirar o cursor do mouse de cima do campo, -->
+<!-- a cor de fundo ficará branca. -->
+
+
+
+</html>
