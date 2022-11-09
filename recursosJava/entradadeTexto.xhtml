@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	  
+<!-- 	  Entrada de textos -->
+<!-- Existem três tipos de componentes que renderizam campos de entrada de texto: -->
+<!-- <h:inputText> , <h:inputSecret> e <h:inputTextarea> . -->
+
+<!--                     O componente <h:inputText> -->
+<!-- O componente <h:inputText> renderiza um campo de entrada de texto simples, -->
+<!-- representado pelo elemento input do tipo "text" da HTML. Já usamos este -->
+<!-- componente anteriormente. No exemplo a seguir, o campo de entrada está ligado à -->
+<!-- propriedade nome do managed bean meuBean . -->
+
+<h:inputText value="#{meuBean.nome}"/>
+
+<!--                     O componente <h:inputSecret> -->
+<!-- O componente <h:inputSecret> renderiza um campo de entrada de senha, -->
+<!-- representado pelo elemento input do tipo "password" da HTML. O texto digitado é -->
+<!-- apresentado de forma secreta. -->
+
+<h:inputSecret value="#{loginBean.senha}" />
+
+
+
+<!--                     O componente <h:inputTextarea> -->
+<!-- O componente <h:inputTextarea> renderiza um campo de entrada de textos -->
+<!-- maiores, que podem ter várias colunas e linhas, e é representado pelo elemento -->
+<!-- textarea na HTML. Os atributos cols e rows definem o tamanho de colunas e linhas -->
+<!-- da área do texto, respectivamente. O código abaixo cria uma área de texto com 3 linhas -->
+<!-- e 40 colunas: -->
+<h:inputTextarea cols="40" rows="3"
+     	value="#{cadastroUsuarioBean.resumoCurriculo}"/>
+
+
+
+
+</html>
