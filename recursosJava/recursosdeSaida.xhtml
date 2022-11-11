@@ -22,6 +22,31 @@ Bem-vindo  <span style="font-weight: bold">Thiago</span>
 <!-- Veja que o texto "Bem-vindo" não está envolvido por nenhum elemento da HTML. -->
 <!-- Quando usamos algum atributo que deve ser refletido no código HTML, como o id ou -->
 <!-- style , o texto é gerado dentro da tag <span> , como aconteceu com "Thiago". -->
+
+
+<!-- O componente <h:outputFormat> -->
+<!-- O componente <h:outputFormat> renderiza textos parametrizados na página. Os -->
+<!-- textos parametrizados são compostos por espaços reservados (placeholders), que são -->
+<!-- substituídos por valores no momento da renderização. -->
+<!-- Os valores parametrizados são definidos com números entre chaves, iniciando a partir -->
+<!-- do número zero. As definições dos valores são feitas através da tag <f:param> da -->
+<!-- biblioteca core. -->
+
+
+	<h:head>
+		<title>OutputFormat</title>
+	</h:head>
+	
+		<h:body>
+			<h:form>
+				<h:outputFormat
+						value="Oi {0}! Existem {1} tarefas pendentes.">
+						<f:param value="#{tarefaBean.nomeUsuario}" />
+						<f:param value="#{tarefaBean.qtdeTarefasPendentes}" />
+				</h:outputFormat>
+			</h:form>
+	  
+	  
 	  
 	  
 </html>
