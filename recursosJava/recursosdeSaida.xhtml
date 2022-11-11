@@ -46,7 +46,21 @@ Bem-vindo  <span style="font-weight: bold">Thiago</span>
 				</h:outputFormat>
 			</h:form>
 	  
+<!-- 	  O componente <h:outputLabel> -->
+<!-- O componente <h:outputLabel> renderiza o elemento da HTML. Os componentes -->
+<!-- deste tipo são vinculados com outros através do atributo for . O uso deste componente -->
+<!-- é justificado para rotular campos de seus formulários. -->
+
+	<h:form id="frm">
+			<h:outputLabel value="Nome:" for="nomeInput" />
+			<h:inputText id="nomeInput" />
+	</h:form>
 	  
-	  
+<!-- 	  O código acima renderiza a seguinte saída em HTML: -->
+	
+	<label for="frm:nomeInput">Nome:</label>
+	<input id="frm:nomeInput" type="text" name="frm:nomeInput" />
+	
+	
 	  
 </html>
